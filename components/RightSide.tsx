@@ -8,7 +8,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel"; 
+} from "@/components/ui/carousel";
 import banner1 from "@/public/static/banner1.jpeg";
 import banner2 from "@/public/static/banner2.jpeg";
 import banner3 from "@/public/static/banner3.jpeg";
@@ -18,25 +18,22 @@ export default function RightSide() {
   const [isStylingOpen, setIsStylingOpen] = useState(false);
   const [selectedGender, setSelectedGender] = useState("Women");
 
-
-
   const toggleHaircut = () => setIsHaircutOpen(!isHaircutOpen);
   const toggleStyling = () => setIsStylingOpen(!isStylingOpen);
 
   return (
-    <div className="ml-[.4rem] h-screen pl-1.5 pr-0.5 bg-white pt-0 w-full">
-      
+    <div className="ml-[.4rem] md:px-12  h-screen pl-1.5 pr-0.5 bg-white pt-0 w-full">
       <div className="my-2">
-      <Carousel
+        <Carousel
           opts={{ align: "start", loop: true }}
           plugins={[
             Autoplay({
-              delay: 6000,
+              delay: 3000,
               stopOnInteraction: false,
               stopOnMouseEnter: true,
             }),
           ]}
-        > 
+        >
           <CarouselContent>
             {[banner1, banner2, banner3].map((banner, index) => (
               <CarouselItem key={index}>
@@ -46,7 +43,7 @@ export default function RightSide() {
                   width={1200}
                   height={900}
                   alt={`banner-${index}`}
-                  className="rounded-lg"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 220px"
                 />
               </CarouselItem>
             ))}
@@ -54,9 +51,8 @@ export default function RightSide() {
         </Carousel>
       </div>
 
-      
       <div className="mt-6 flex items-center border rounded-lg">
-        <FaSearch width={24} className="ml-2 text-cyan-500"/>
+        <FaSearch width={24} className="ml-2 text-cyan-500" />
 
         <input
           type="text"
@@ -151,7 +147,9 @@ export default function RightSide() {
                       <p className="font-medium text-sm text-black">
                         {service.name}
                       </p>
-                      <p className="text-xs text-gray-500">From {service.price}</p>
+                      <p className="text-xs text-gray-500">
+                        From {service.price}
+                      </p>
                     </div>
                     <button className="shadow text-cyan-500 font-bold text-sm px-4 py-1 rounded-lg">
                       ADD

@@ -42,12 +42,14 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="w-[4.5rem] bg-white h-screen py-4 pt-2 flex flex-col items-center overflow-y-auto space-y-4 scrollbar-none">
+    <div className="w-[4.5rem] md:w-[18rem] lg:w-[24rem]   bg-white min-h-screen py-4 pt-2 flex flex-col items-center overflow-y-auto space-y-4 scrollbar-none">
       {categories.map((category, index) => (
         <button
           key={category.name}
-          className={`flex flex-col items-center justify-center text-center space-y-2 transition-all duration-200 w-full ${
-            selectedCategoryIndex === index ? "bg-[#e5eaf3] border-r-4 border-[#809bb3]" : ""
+          className={`flex flex-col md:flex-row items-center justify-start md:h-full text-center md:text-left space-y-2 md:space-y-0 md:space-x-2 transition-all duration-200 w-full px-2 ${
+            selectedCategoryIndex === index
+              ? "bg-[#e5eaf3] border-r-4 border-[#809bb3]"
+              : ""
           }`}
           onClick={() => handleCategoryClick(index)}
         >
@@ -58,7 +60,9 @@ export default function Sidebar() {
             height={48}
             alt={category.name}
           />
-          <span className="text-[.7rem] font-medium leading-3">{category.name}</span>
+          <span className="text-[.7rem] md:text-sm lg:text-base md:ml-6 font-medium leading-3">
+            {category.name}
+          </span>
         </button>
       ))}
     </div>
