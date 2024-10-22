@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://luzoapp.vercel.app"),
+  metadataBase: new URL("https://luzoui.vercel.app/"),
   title: {
     template: `%s | Luzo.app`,
     default: "Luzo.app",
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  category: "Technology",
+  category: "Technology & Sailon",
   openGraph: {
     title: "Luzo.app",
     description: "Discover seamless services with the Luzo.app platform.",
-    url: "https://luzoapp.vercel.app",
+    url: "https://luzoui.vercel.app/",
     type: "website",
     siteName: "Luzo.app",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://play-lh.googleusercontent.com/R_DOL0zVdIK_9rnrM195QcmHoePIgOs1hJJbHNO2Fsz915wlfS__4JK79pFQ3NIWQA=w240-h480-rw",
       },
     ],
   },
