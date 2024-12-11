@@ -20,9 +20,28 @@ export default function RightSide() {
 
   const toggleHaircut = () => setIsHaircutOpen(!isHaircutOpen);
   const toggleStyling = () => setIsStylingOpen(!isStylingOpen);
+  const addServiceToDatabase = async (categoryName, serviceName, price) => {
+    try {
+      const response = await fetch("/api/addService", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ categoryName, serviceName, price }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add service");
+      }
+
+      alert("Service added successfully!");
+    } catch (error) {
+      console.error("Error adding service:", error);
+    }
+  };
 
   return (
-    <div className="ml-[.4rem] md:px-12  h-screen pl-1.5 pr-0.5 bg-white pt-0 w-full">
+    <div className="ml-[.4rem] md:px-12 h-screen pl-1.5 pr-0.5 bg-white pt-0 w-full">
       <div className="my-2">
         <Carousel
           opts={{ align: "start", loop: true }}
@@ -113,7 +132,16 @@ export default function RightSide() {
                     </p>
                     <p className="text-xs text-gray-500">From ₹2,500</p>
                   </div>
-                  <button className="shadow text-cyan-500 font-bold text-sm px-4 py-1 rounded-lg">
+                  <button
+                    className="shadow text-cyan-500 font-bold text-sm px-4 py-1 rounded-lg"
+                    onClick={() =>
+                      addServiceToDatabase(
+                        "Haircut",
+                        "Haircut By Celebrity Stylist",
+                        2500
+                      )
+                    }
+                  >
                     ADD
                   </button>
                 </div>
@@ -151,7 +179,16 @@ export default function RightSide() {
                         From {service.price}
                       </p>
                     </div>
-                    <button className="shadow text-cyan-500 font-bold text-sm px-4 py-1 rounded-lg">
+                    <button
+                      className="shadow text-cyan-500 font-bold text-sm px-4 py-1 rounded-lg"
+                      onClick={() =>
+                        addServiceToDatabase(
+                          "Haircut",
+                          "Haircut By Celebrity Stylist",
+                          2500
+                        )
+                      }
+                    >
                       ADD
                     </button>
                   </div>
